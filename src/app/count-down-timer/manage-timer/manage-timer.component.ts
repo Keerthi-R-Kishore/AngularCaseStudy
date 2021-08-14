@@ -97,6 +97,8 @@ export class ManageTimerComponent implements OnInit {
     this.startClicks = 0;
     this.pauseClicks = 0;
     this.resumeClicks = 0;
+    this.isPaused = false;
+    this.isResume = false;
     this.emitClicks();
     this.timeStampEmitter('reset');
     this.pausedArr = [];
