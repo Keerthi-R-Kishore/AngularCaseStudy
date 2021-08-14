@@ -1,0 +1,57 @@
+<div class="timer-manager" role="article" aria-roledescription="form container">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="timerLimit" class="col-sm-4 control-label"
+        >Enter Timer Limit</label
+      >
+      <div class="col-sm-6">
+        <input
+          type="number"
+          required
+          name="timerLimit"
+          #timer
+          ngModel
+          class="form-control"
+          id="timerLimit"
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-6">
+        <button
+          type="button"
+          class="btn btn-default"
+          *ngIf="!isPaused && !isResume"
+          (click)="startTimer()"
+        >
+          Start
+        </button>
+        <button
+          type="button"
+          class="btn btn-default"
+          *ngIf="isPaused"
+          (click)="pauseTimer()"
+        >
+          Pause
+        </button>
+        <button
+          type="button"
+          class="btn btn-default"
+          (click)="resumeTimer()"
+          *ngIf="isResume"
+        >
+          Resume
+        </button>
+        <button type="button" class="btn btn-default" (click)="resetTimer()">
+          Reset
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="row" *ngIf="pausedArr.length > 0">
+    <div class="col-xs-4">
+      <p *ngFor="let paused of pausedArr">Paused at {{ paused }}</p>
+    </div>
+  </div>
+</div>

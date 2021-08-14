@@ -1,0 +1,17 @@
+<div class="thumbnail">
+  <img [src]="product.imgPath" alt="product-image" />
+  <div class="caption">
+    <h3>{{ product.name }}</h3>
+    <p class="price">
+      &#8377; <strong>{{ product.price }}</strong>
+    </p>
+    <p>
+      Rating :
+      <span
+        *ngFor="let i of ratingArray"
+        class="glyphicon glyphicon-star"
+        aria-hidden="true"
+      ></span>
+    </p>
+  </div>
+</div>

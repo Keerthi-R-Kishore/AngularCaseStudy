@@ -1,0 +1,9 @@
+<div
+  role="contentinfo"
+  aria-roledescription="tracker for click events"
+  *ngIf="counts"
+>
+  <p>Started : {{ counts.startCount }}</p>
+  <p>Paused : {{ counts.pauseCount }}</p>
+  <p>Resume : {{ counts.resumeCount }}</p>
+</div>

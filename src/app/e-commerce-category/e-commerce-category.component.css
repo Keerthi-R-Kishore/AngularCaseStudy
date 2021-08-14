@@ -1,0 +1,21 @@
+.ecommerce-menu {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.product {
+  display: grid;
+  padding: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.list {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+}
+
+.list app-product img {
+  height: 400px;
+}

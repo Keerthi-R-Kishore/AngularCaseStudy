@@ -1,0 +1,21 @@
+<div class="container-box">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th (click)="onHeading(heading)" *ngFor="let heading of headings">
+          {{ heading }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.name }}</td>
+        <td>{{ student.section }}</td>
+        <td>{{ student.std }}</td>
+        <td>{{ student.sub1 }}</td>
+        <td>{{ student.sub2 }}</td>
+        <td>{{ student.sub3 }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

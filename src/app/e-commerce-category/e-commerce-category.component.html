@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-xs-3 col-xs-offset-6">
+    <nav class="ecommerce-menu">
+      <div class="view-selector">
+        <button
+          #gridButton
+          type="button"
+          class="btn btn-default"
+          routerLinkActive="active"
+          aria-label="Left Align"
+          (click)="onGridView()"
+        >
+          <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+        </button>
+        <button
+          #listButton
+          type="button"
+          class="btn btn-default"
+          aria-label="Left Align"
+          (click)="onListView()"
+          routerLinkActive="active"
+        >
+          <span
+            class="glyphicon glyphicon-menu-hamburger"
+            aria-hidden="true"
+          ></span>
+        </button>
+      </div>
+
+      <div class="dropdown" appDropdown>
+        <button
+          class="btn btn-default dropdown-toggle"
+          type="button"
+          id="dropdownMenu1"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="true"
+        >
+          Price Filter
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a (click)="filterProducts(500)">Less than 500</a></li>
+          <li><a (click)="filterProducts(600)">Between 500-1000</a></li>
+          <li><a (click)="filterProducts(1000)">More than 1000</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="product" #productContainer>
+      <app-product
+        *ngFor="let product of products"
+        [product]="product"
+      ></app-product>
+    </div>
+  </div>
+</div>

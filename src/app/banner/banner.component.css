@@ -1,0 +1,48 @@
+.container-div {
+  height: 75vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.div-1,
+.div-2,
+.div-3,
+.div-4,
+.div-5,
+.div-6,
+.div-7,
+.div-8 {
+  border: 3px solid #333;
+  margin: 10px;
+  overflow: hidden;
+}
+
+h3 {
+  margin: 10px;
+  white-space: nowrap;
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  animation: animate 15s linear infinite;
+  -webkit-animation: animate 15s linear infinite;
+}
+
+@keyframes animate {
+  from {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+  }
+}

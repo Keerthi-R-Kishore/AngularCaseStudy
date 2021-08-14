@@ -1,0 +1,9 @@
+.timer {
+  border: 3px solid #333;
+  padding: 30px;
+  height: 100%;
+}
+
+p {
+  font-size: 32px;
+}

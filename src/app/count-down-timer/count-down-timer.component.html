@@ -1,0 +1,26 @@
+<div
+  class="container-box"
+  role="article"
+  aria-roledescription="components loader"
+>
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-1">
+      <app-display-timer [timer]="timeRemaining"></app-display-timer>
+    </div>
+    <div class="col-xs-6">
+      <app-manage-timer
+        (emitClickCount)="onCountClick($event)"
+        (emitTimer)="onTimer($event)"
+        (timeEmitter)="ontimeEmitter($event)"
+      ></app-manage-timer>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-1">
+      <app-log-timer [timeStamp]="timeStamp"></app-log-timer>
+    </div>
+    <div class="col-xs-6">
+      <app-track-timer [counts]="countClick"></app-track-timer>
+    </div>
+  </div>
+</div>
