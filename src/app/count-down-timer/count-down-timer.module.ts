@@ -8,9 +8,7 @@ import { LogTimerComponent } from './log-timer/log-timer.component';
 import { ManageTimerComponent } from './manage-timer/manage-timer.component';
 import { TrackTimerComponent } from './track-timer/track-timer.component';
 
-const countRoutes: Routes = [
-  { path: 'count-down-timer', component: CountDownTimerComponent },
-];
+const countRoutes: Routes = [{ path: '', component: CountDownTimerComponent }];
 
 @NgModule({
   declarations: [

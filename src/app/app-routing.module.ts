@@ -1,13 +1,5 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { BannerComponent } from './banner/banner.component';
-import { CountDownTimerComponent } from './count-down-timer/count-down-timer.component';
-import { ECommerceCategoryComponent } from './e-commerce-category/e-commerce-category.component';
-import { EcommerceResolverService } from './e-commerce-category/e-commerce.resolver';
-
-import { StudentComponent } from './student/student.component';
-import { SubjectTimerComponent } from './subject-timer/subject-timer.component';
-import { AddDivComponent } from './add-div/add-div.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/banner', pathMatch: 'full' },

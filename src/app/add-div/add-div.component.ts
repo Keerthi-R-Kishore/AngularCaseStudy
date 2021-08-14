@@ -30,7 +30,6 @@ export class AddDivComponent implements OnInit {
   onScroll(event) {
     if (pageYOffset > 340) {
       this.num++;
-      console.log(this.num);
       for (let i = 1; i < this.num; i++) {
         this.addElement(this.num * 4);
       }

@@ -26,7 +26,6 @@ export class StudentComponent implements OnInit, OnDestroy {
     this.stuSortTypeSubs = this.studentSer.sortType.subscribe((data) => {
       this.sortType = data;
     });
-    console.log(this.sortType);
   }
 
   transformResponse(data: Student[]) {
