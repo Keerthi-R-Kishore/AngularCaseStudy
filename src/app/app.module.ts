@@ -15,7 +15,7 @@ import { StudentModule } from './student/student.module';
 import { SubjectTimerModule } from './subject-timer/subject-timer.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, DropdownDirective],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     FormsModule,

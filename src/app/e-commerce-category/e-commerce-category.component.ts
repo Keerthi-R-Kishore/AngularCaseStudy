@@ -44,7 +44,6 @@ export class ECommerceCategoryComponent implements OnInit {
   }
 
   filterProducts(value: number) {
-    console.log(value);
     this.products = this.ecom.filter(value);
   }
 }

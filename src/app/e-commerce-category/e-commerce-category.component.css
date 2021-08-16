@@ -11,6 +11,10 @@
   gap: 20px;
 }
 
+.view-selector {
+  display: flex;
+}
+
 .list {
   grid-template-columns: repeat(2, 1fr);
   gap: 50px;
