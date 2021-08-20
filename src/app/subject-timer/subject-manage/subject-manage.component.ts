@@ -3,6 +3,7 @@ import {
   ElementRef,
   OnDestroy,
   OnInit,
+  Renderer2,
   ViewChild,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -26,7 +27,10 @@ export class SubjectManageComponent implements OnInit, OnDestroy {
   pauseClicks: number = 0;
   resumeClicks: number = 0;
 
-  constructor(private subjectService: SubjectTimerService) {}
+  constructor(
+    private subjectService: SubjectTimerService,
+    private renderer: Renderer2
+  ) {}
 
   ngOnInit(): void {
     this.timerSubs = this.subjectService.emitNumber.subscribe((num) => {
@@ -69,7 +73,7 @@ export class SubjectManageComponent implements OnInit, OnDestroy {
   }
 
   resetTimer() {
-    this.timerSet.nativeElement.value = '';
+    this.renderer.setProperty(this.timerSet.nativeElement, 'value', '');
     this.isPaused = false;
     this.isResume = false;
     this.startClicks = 0;

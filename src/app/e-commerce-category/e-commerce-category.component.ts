@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   OnInit,
+  Renderer2,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -22,7 +23,11 @@ export class ECommerceCategoryComponent implements OnInit {
   @ViewChild('gridButton', { static: true }) gridButton: ElementRef;
   @ViewChild('listButton', { static: true }) listButton: ElementRef;
 
-  constructor(private ecom: EcommerceService, private route: ActivatedRoute) {}
+  constructor(
+    private ecom: EcommerceService,
+    private route: ActivatedRoute,
+    private renderer: Renderer2
+  ) {}
 
   ngOnInit(): void {
     this.onGridView();
@@ -32,15 +37,15 @@ export class ECommerceCategoryComponent implements OnInit {
   }
 
   onListView() {
-    this.productsView.nativeElement.classList.add('list');
-    this.listButton.nativeElement.classList.add('active');
-    this.gridButton.nativeElement.classList.remove('active');
+    this.renderer.addClass(this.productsView.nativeElement, 'list');
+    this.renderer.addClass(this.listButton.nativeElement, 'active');
+    this.renderer.removeClass(this.gridButton.nativeElement, 'active');
   }
 
   onGridView() {
-    this.productsView.nativeElement.classList.remove('list');
-    this.gridButton.nativeElement.classList.add('active');
-    this.listButton.nativeElement.classList.remove('active');
+    this.renderer.removeClass(this.productsView.nativeElement, 'list');
+    this.renderer.removeClass(this.listButton.nativeElement, 'active');
+    this.renderer.addClass(this.gridButton.nativeElement, 'active');
   }
 
   filterProducts(value: number) {

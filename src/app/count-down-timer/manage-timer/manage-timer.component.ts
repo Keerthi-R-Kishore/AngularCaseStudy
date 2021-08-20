@@ -4,6 +4,7 @@ import {
   EventEmitter,
   OnInit,
   Output,
+  Renderer2,
   ViewChild,
 } from '@angular/core';
 import { ClickCount } from '../click.count.model';
@@ -28,6 +29,8 @@ export class ManageTimerComponent implements OnInit {
   startClicks: number = 0;
   pauseClicks: number = 0;
   resumeClicks: number = 0;
+
+  constructor(private renderer: Renderer2) {}
 
   ngOnInit() {}
 
@@ -59,10 +62,14 @@ export class ManageTimerComponent implements OnInit {
     this.startTimerInterval();
   }
 
-  emitClicks() {
-    this.emitClickCount.emit(
-      new ClickCount(this.startClicks, this.pauseClicks, this.resumeClicks)
-    );
+  emitClicks(reset = false) {
+    if (!reset) {
+      this.emitClickCount.emit(
+        new ClickCount(this.startClicks, this.pauseClicks, this.resumeClicks)
+      );
+    } else {
+      this.emitClickCount.emit(null);
+    }
   }
 
   timeStampEmitter(str: string) {
@@ -99,12 +106,12 @@ export class ManageTimerComponent implements OnInit {
     this.resumeClicks = 0;
     this.isPaused = false;
     this.isResume = false;
-    this.emitClicks();
+    this.emitClicks(true);
     this.timeStampEmitter('reset');
     this.pausedArr = [];
     clearInterval(this.timeFunction);
     this.emitTimer.emit(null);
-    this.timeSet.nativeElement.value = '';
+    this.renderer.setProperty(this.timeSet.nativeElement, 'value', '');
   }
 
   dateForamtter(date: Date) {
