@@ -99,6 +99,7 @@ export class ManageTimerComponent implements OnInit {
         clearInterval(this.timeFunction);
         this.isPaused = false;
         this.isResume = false;
+        this.pausedArr = [];
       }
       this.timerValue--;
     }, 1000);
