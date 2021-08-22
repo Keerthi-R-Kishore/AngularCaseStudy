@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ClickCount } from './click.count.model';
 
 @Component({
   selector: 'app-count-down-timer',
   templateUrl: './count-down-timer.component.html',
   styleUrls: ['./count-down-timer.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CountDownTimerComponent implements OnInit {
   timeRemaining: number;
@@ -20,7 +21,7 @@ export class CountDownTimerComponent implements OnInit {
   }
 
   ontimeEmitter(event) {
-    this.timeStamp = event;
+    this.timeStamp = [...event];
   }
 
   onCountClick(event) {

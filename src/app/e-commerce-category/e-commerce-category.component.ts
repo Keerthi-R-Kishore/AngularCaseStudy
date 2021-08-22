@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   OnInit,
@@ -15,6 +16,7 @@ import { Product } from './product.model';
   templateUrl: './e-commerce-category.component.html',
   styleUrls: ['./e-commerce-category.component.css'],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ECommerceCategoryComponent implements OnInit {
   products: Product[] = [];

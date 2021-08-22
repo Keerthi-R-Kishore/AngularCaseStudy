@@ -19,6 +19,7 @@ export class SubjectTimerService {
       this.emitNumber.next(value);
       if (value === 0) {
         clearInterval(this.timeFunction);
+        // this.emitNumber.next(0);
       }
       value--;
     }, 1000);
@@ -33,6 +34,7 @@ export class SubjectTimerService {
     this.emitNumber.next(null);
     this.emitTime.next(null);
     this.emitClicks.next(null);
+    this.timeArr = [];
     clearInterval(this.timeFunction);
   }
 

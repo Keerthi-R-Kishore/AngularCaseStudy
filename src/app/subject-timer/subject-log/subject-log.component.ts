@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SubjectTimerService } from '../subject-timer.service';
 
@@ -11,11 +11,17 @@ export class SubjectLogComponent implements OnInit, OnDestroy {
   timeStamp: string[] = [];
   timeSubs: Subscription;
 
-  constructor(private subSups: SubjectTimerService) {}
+  constructor(
+    private subSups: SubjectTimerService,
+    private cd: ChangeDetectorRef
+  ) {
+    this.cd.detach();
+  }
 
   ngOnInit(): void {
     this.timeSubs = this.subSups.emitTime.subscribe((time) => {
       this.timeStamp = time;
+      this.cd.detectChanges();
     });
   }
 

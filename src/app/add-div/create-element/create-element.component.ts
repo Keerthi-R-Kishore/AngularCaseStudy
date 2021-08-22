@@ -1,9 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 
 @Component({
   selector: 'app-create-element',
   templateUrl: './create-element.component.html',
   styleUrls: ['./create-element.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateElementComponent implements OnInit {
   @Input() index: number;

@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -13,6 +14,7 @@ import { ClickCount } from '../click.count.model';
   selector: 'app-manage-timer',
   templateUrl: './manage-timer.component.html',
   styleUrls: ['./manage-timer.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ManageTimerComponent implements OnInit {
   @Output() emitTimer = new EventEmitter<number>();
@@ -95,6 +97,8 @@ export class ManageTimerComponent implements OnInit {
       this.emitTimer.emit(this.timerValue);
       if (this.timerValue === 0) {
         clearInterval(this.timeFunction);
+        this.isPaused = false;
+        this.isResume = false;
       }
       this.timerValue--;
     }, 1000);

@@ -1,4 +1,6 @@
 import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   OnDestroy,
@@ -14,6 +16,7 @@ import { SubjectTimerService } from '../subject-timer.service';
   selector: 'app-subject-manage',
   templateUrl: './subject-manage.component.html',
   styleUrls: ['./subject-manage.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SubjectManageComponent implements OnInit, OnDestroy {
   @ViewChild('timer', { static: true }) timerSet: ElementRef;
@@ -29,11 +32,18 @@ export class SubjectManageComponent implements OnInit, OnDestroy {
 
   constructor(
     private subjectService: SubjectTimerService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     this.timerSubs = this.subjectService.emitNumber.subscribe((num) => {
+      if (num === 0) {
+        this.pausedArr = [];
+        this.isResume = false;
+        this.isPaused = false;
+        this.cd.detectChanges();
+      }
       this.countFromSubject = num;
     });
   }
@@ -79,6 +89,7 @@ export class SubjectManageComponent implements OnInit, OnDestroy {
     this.startClicks = 0;
     this.pauseClicks = 0;
     this.resumeClicks = 0;
+    this.pausedArr = [];
     this.subjectService.resetEmits();
   }
 
